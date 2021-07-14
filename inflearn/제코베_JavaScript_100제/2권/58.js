@@ -1,14 +1,16 @@
+// 1. 내장함수
 // const num = parseInt(prompt('숫자를 입력하세요.'), 10);
 // console.log(num.toLocaleString()); 
 
-const input = prompt('숫자를 입력하세요.');
-const comma = (input) => {
-    if (input.length <= 3) {
-        return input;
-    }
 
-    if (input.length > 4) {
-        return comma(input.slice(0, input.length - 3)) + ',' + input.slice(input.length - 3);
+// 2. 재귀함수 사용
+const input = prompt('숫자를 입력하세요.');
+
+function comma(data) {
+    if (data.length <= 3) {
+        return data;
+    } else {
+        return comma(data.slice(0, data.length - 3)) + ',' + data.slice(data.length - 3);
     }
 }
 
