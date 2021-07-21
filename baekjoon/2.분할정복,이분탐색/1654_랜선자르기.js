@@ -76,4 +76,4 @@ function solution(K, N, input) {
     console.log(answer);
 }
 
-solution(input);
+solution(K, N, input);
