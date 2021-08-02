@@ -1,31 +1,5 @@
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-
-// const input = [
-//     '8 8',
-//     'WBWBWBWB',
-//     'BWBWBWBW',
-//     'WBWBWBWB',
-//     'BWBBBWBW',
-//     'WBWBWBWB',
-//     'BWBWBWBW',
-//     'WBWBWBWB',
-//     'BWBWBWBW'
-// ];
-
-// const input = [
-//     '10 13',
-//     'BBBBBBBBWBWBW',
-//     'BBBBBBBBBWBWB',
-//     'BBBBBBBBWBWBW',
-//     'BBBBBBBBBWBWB',
-//     'BBBBBBBBWBWBW',
-//     'BBBBBBBBBWBWB',
-//     'BBBBBBBBWBWBW',
-//     'BBBBBBBBBWBWB',
-//     'WWWWWWWWWWBWB',
-//     'WWWWWWWWWWBWB'
-// ];
+const input = fs.readFileSync('../test.txt').toString().trim().split('\n');
 
 const white = [
     'WBWBWBWB',
@@ -86,7 +60,5 @@ for (let i = 0; i + 7 < N; i++) {
         result.push(countNotBlack(i, j));
     }
 }
-
-// console.log(result);
 
 console.log(Math.min.apply(null, result));
