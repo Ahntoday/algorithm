@@ -1,8 +1,8 @@
-const solution = (k, room_number) => {
+function solution(k, room_number) {
     let available_rooms = new Map();
     let answer = [];
 
-    const find_available = (number) => {
+    function find_available(number) {
         let available = available_rooms.get(number);
         if (!available) {
             return number;
