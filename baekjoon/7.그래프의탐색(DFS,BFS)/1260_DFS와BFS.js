@@ -1,33 +1,6 @@
-// 백준 입출력을 위한 코드
-// const readline = require("readline");
-
-// const rl = readline.createInterface({
-//     input: process.stdin,
-//     output: process.stdout,
-// });
-
-// let input = [];
 let visited = [];
 let edge = [];
 let answer = [];
-
-// rl.on("line", function (line) { //여러줄 입력 
-//     input.push(line);
-//     //rl.close()가 없어서 계속입력 
-//     //로컬에서 입력을 중지할려면 입력을 한 후 'ctrl + D'을 통해 입력 종료 
-// }).on("close", function () {
-//     // 이런식으로 적절하게 입력값을 처리해줘야한다. 
-//     let NMV = input.shift().split(' ').map(function (n) {
-//         return parseInt(n, 10);
-//     })
-//     let N = NMV.shift();
-//     let M = NMV.shift();
-//     let V = NMV.shift();
-
-//     solution(N, M, V, input);
-//     //프로세스 종료 
-//     process.exit();
-// });
 
 let input = [
     '4 5 1',
@@ -37,20 +10,6 @@ let input = [
     '2 4',
     '3 4'
 ];
-
-// let input = [
-//     '5 5 3',
-//     '5 4',
-//     '5 2',
-//     '1 2',
-//     '3 4',
-//     '3 1'
-// ];
-
-// let input = [
-//     '1000 1 1000',
-//     '999 1000'
-// ]
 
 function dfs(start) {
     visited[start] = true;
@@ -103,6 +62,7 @@ function solution(N, M, V, input) {
         edge[from].push(to);
         edge[to].push(from);
     };
+
     edge.forEach((el) => {
         el.sort((a, b) => a - b);
     });
