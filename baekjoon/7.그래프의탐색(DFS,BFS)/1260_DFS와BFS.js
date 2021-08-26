@@ -1,15 +1,15 @@
+const fs = require('fs');
+let input = fs.readFileSync("../test.txt").toString().trim().split('\n');
+let NMV = input.shift().split(' ').map(function (n) {
+    return parseInt(n, 10);
+})
+const N = NMV.shift();
+const M = NMV.shift();
+const V = NMV.shift();
+
 let visited = [];
 let edge = [];
 let answer = [];
-
-let input = [
-    '4 5 1',
-    '1 2',
-    '1 3',
-    '1 4',
-    '2 4',
-    '3 4'
-];
 
 function dfs(start) {
     visited[start] = true;
@@ -32,7 +32,7 @@ function bfs(start) {
     while (queue.length !== 0) {
         let current = queue.shift();
 
-        for (let i = 0; i < edge[start].length; i++) {
+        for (let i = 0; i < edge[current].length; i++) {
             let next = edge[current][i];
             if (next && !visited[next]) {
                 queue.push(next);
@@ -42,13 +42,6 @@ function bfs(start) {
         }
     }
 }
-
-let NMV = input.shift().split(' ').map(function (n) {
-    return parseInt(n, 10);
-})
-const N = NMV.shift();
-const M = NMV.shift();
-const V = NMV.shift();
 
 function solution(N, M, V, input) {
     visited = new Array(N + 1).fill(false);
