@@ -1,8 +1,8 @@
+// 시간초과
 const fs = require('fs');
 let input = fs.readFileSync("../../test.txt").toString().trim().split('\n');
 input = input.map(el => parseInt(el, 10));
-let result = [];
-console.log(input);
+let result = '';
 const isPrime = (n) => {
     let arr = Array(n + 1).fill(true).fill(false, 0, 2);
     for (let i = 2; i * i <= n; i++) { // i제곱이 n보다 작을 때까지
@@ -28,25 +28,21 @@ for (let i = 0; i < input.length; i++) {
     let [maxPrime, minPrime] = [0, 0];
     // console.log(primeNums);
     let max = 0;
-    let result = [0, 0];
     for (let j = 0; j < primeNums.length; j++) {
         for (let k = j; k < primeNums.length; k++) {
             if (primeNums[j] + primeNums[k] === input[i]) {
                 maxPrime = primeNums[j] > primeNums[k] ? primeNums[j] : primeNums[k];
                 minPrime = primeNums[j] > primeNums[k] ? primeNums[k] : primeNums[j];
-                console.log(primeNums[j], primeNums[k]);
-                console.log(`max: ${max} maxPrime: ${maxPrime} minPrime: ${minPrime}`);
 
                 if (max < maxPrime - minPrime) {
-                    result[0] = minPrime;
-                    result[1] = maxPrime;
                     max = maxPrime - minPrime;
+                    result += input[i] + ' = ' + minPrime + ' + ' + maxPrime;
+                    if (k !== primeNums.length - 1) {
+                        result += '\n';
+                    }
                 }
             }
         }
     }
-    let str = (input[i] + '=' + minPrime + '+' + maxPrime);
-    result.push(str);
 }
-
-console.log(result);
+console.log(result.trim());
