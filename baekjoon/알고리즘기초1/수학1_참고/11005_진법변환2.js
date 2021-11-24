@@ -6,10 +6,9 @@ let result = '';
 for (let i = 0; i < numbers.length; i++) {
     if ('a' <= numbers[i] && numbers[i] <= 'z') {
         result += numbers[i].toUpperCase();
+        continue;
     }
-    else {
-        result += numbers[i];
-    }
+    result += numbers[i];
 }
 
 console.log(result);
