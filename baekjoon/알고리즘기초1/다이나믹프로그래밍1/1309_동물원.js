@@ -5,9 +5,6 @@ let input = fs.readFileSync('../../test.txt').toString().split('\n');
 // 2. 왼쪽에 사자가 있다.
 // 3. 오른쪽에 사자가 있다.
 
-// dp[i][0] = dp[i - 1][0] + dp[i - 1][1] + dp[i - 1][2]
-// dp[i][1] = dp[i - 1][0] + dp[i - 1][2]
-// dp[i][2] = dp[i - 1][0] + dp[i - 1][1]
 const N = Number(input.shift());
 const DP = Array.from(Array(100001), () => Array(3));
 DP[1][0] = 1;
